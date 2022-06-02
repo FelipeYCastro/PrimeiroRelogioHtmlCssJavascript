@@ -6,9 +6,9 @@
 }
 
 :root {
-  --bg-color1: #4158d0;
-  --bg-color2: #c450c0;
-  --bg-color3: #ffcc70;
+  --bg-color1: #45aaf2;
+  --bg-color2: #4b7bec;
+  --bg-color3: #a55eea;
 }
 
 body {
@@ -81,17 +81,46 @@ body {
 }
 
 /* ponteiros do relógio */
+.clock::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
 .clock .hand {
   --rotation: 0;
 
   position: absolute;
   bottom: 50%;
   left: 50%;
-  width: 10px;
-  height: 40%;
   background-color: black;
   z-index: 10;
   transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
   transform-origin: bottom;
   border-radius: 10px 10px 0 0;
+}
+
+.clock .hand.seconds {
+  width: 3px;
+  height: 40%;
+  background-color: red;
+}
+
+.clock .hand.minutes {
+  width: 5px;
+  height: 35%;
+  background-color: black;
+}
+
+.clock .hand.hours {
+  width: 5px;
+  height: 22%;
+  background-color: black;
 }
